@@ -9,8 +9,8 @@
 | 주차 | 주제 | 키워드 | 노트 | 실습 |
 |---|---|---|---|---|
 | 1주차 | 베이지안 추론 입문 | 빈도론 vs 베이지안, 가능도·사전분포·사후분포, 신용구간 | [notes](./week01_intro/notes.md) | [notebook](./week01_intro/week01_intro.ipynb) |
-| 2주차 | 교환가능성과 우도원리 | 교환가능성, de Finetti 정리, 우도·충분성·조건부 원리, HPD 구간 | [notes](./week02_exchangeability_likelihood/notes.md) | [notebook](./week02_exchangeability_likelihood/week02_exchangeability_likelihood.ipynb) |
-| 3주차 | 이항분포의 베이지안 추론 | 켤레 사전분포, 몬테카를로, 사후평균의 가중평균 해석, 베타-이항 예측분포, 두 비율 비교 | [notes](./week03_binomial_model/notes.md) | [notebook](./week03_binomial_model/week03_binomial_model.ipynb) |
+| 2주차 | 교환가능성과 우도원리 | 교환가능성, de Finetti 정리, 가능도 함수, 우도·충분성·조건부 원리, 신뢰구간 vs 신용구간, HPD 구간 | [notes](./week02_exchangeability_likelihood/notes.md) | [notebook](./week02_exchangeability_likelihood/week02_exchangeability_likelihood.ipynb) |
+| 3주차 | 이항분포의 베이지안 추론 | 켤레 사전분포, 몬테카를로(사후평균·분산 근사), 사후평균의 가중평균 해석, 베타-이항 예측분포, 두 비율 비교 | [notes](./week03_binomial_model/notes.md) | [notebook](./week03_binomial_model/week03_binomial_model.ipynb) |
 | 4주차 | 진행 예정 | | | |
 | 5주차 | 진행 예정 | | | |
 | 6주차 | 진행 예정 | | | |
@@ -25,6 +25,10 @@
 - **p-value는 멈춤 규칙에 따라 달라진다**: 같은 데이터(12번 중 9번 성공)라도 이항 설계는 p≈0.073, "실패 3번까지" 음이항 설계는 p≈0.033. 반면 MLE와 사후분포는 동일 (2주차)
 - **HPD 구간 3가지 구현**: 정확한 해, 그리드 탐색, 사후표본 기반 방법을 비교하고 다봉 분포에서 HPD 집합이 끊어지는 것까지 확인 (2주차)
 - **베이지안 예측분산이 더 큰 이유**: θ를 고정값으로 대입하는 방식(분산 2.34)과 θ의 불확실성을 반영한 베타-이항(분산 2.85) 비교 (3주차)
+- **신용구간의 적중률은 θ마다 다르다**: 정확 신뢰구간(Clopper-Pearson)은 어떤 θ에서도 96% 이상이지만, 2.5%씩 자른 95% 신용구간은 θ=0.05에서 약 91%로 내려가고 θ를 균등분포로 평균 내면 약 95%가 됨 (2주차)
+- **정규 사전분포의 음수 확률 부등호**: 광물 연대 예제에서 $P(\theta<0)$을 계산하니 약 $8.8\times10^{-70}$으로, 강의 자료의 "$0.1^{70}$보다 작다"와는 부등호가 맞지 않았음 (사실상 0이라는 결론은 동일) (2주차)
+- **함수의 평균 ≠ 평균의 함수**: $\theta\mid x\sim Beta(16,26)$에서 $E(1/\theta\mid x)=41/15\approx2.733$인데 $1/E(\theta\mid x)=2.625$. 로그오즈의 사후평균·분산은 몬테카를로와 디감마 함수 정확값이 일치 (3주차)
+- **사후분포의 분모의 정체**: $Beta(1,1)$ 사전분포에서 성공 횟수의 주변확률은 모든 $y$에서 $1/(n+1)$로 균등 (3주차)
 
 ## 실행 환경
 
